@@ -1,0 +1,33 @@
+{
+  "name": "tsinghua-campus-bus-timetable",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Static timetable for Tsinghua campus bus",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UNIDY2002/tsinghua-campus-bus-timetable.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js",
+    "lint": "eslint . --ext .ts",
+    "fix": "eslint . --ext .ts --fix",
+    "precommit": "eslint . --ext .ts --fix"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.20",
+    "@typescript-eslint/eslint-plugin": "7.0.2",
+    "@typescript-eslint/parser": "7.0.2",
+    "eslint": "8.57.0",
+    "eslint-config-standard": "17.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-n": "16.6.2",
+    "eslint-plugin-promise": "6.1.1",
+    "typescript": "5.3.3"
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "0.4.4"
+  }
+}
