@@ -38,6 +38,7 @@ jobs:
           mv build /opt/build
           rm -rf
           mv /opt/build ./build
+          git add .
           git add -f build/*
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
