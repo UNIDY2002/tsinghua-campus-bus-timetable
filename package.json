@@ -13,8 +13,7 @@
     "build": "tsc",
     "start": "node index.js",
     "lint": "eslint . --ext .ts",
-    "fix": "eslint . --ext .ts --fix",
-    "precommit": "eslint . --ext .ts --fix"
+    "fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@types/node": "20.11.22",
@@ -30,5 +29,6 @@
   },
   "dependencies": {
     "@js-temporal/polyfill": "0.4.4"
-  }
+  },
+  "pre-commit": ["lint"]
 }
