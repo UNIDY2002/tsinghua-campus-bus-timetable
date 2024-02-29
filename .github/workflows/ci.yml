@@ -35,7 +35,9 @@ jobs:
       - name: Deploy project
         run: |
           git checkout --orphan gh-pages
-          git clean -dfx
+          mv build /opt/build
+          rm -rf
+          mv /opt/build ./build
           git add -f build/*
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
