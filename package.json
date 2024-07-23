@@ -25,7 +25,7 @@
     "eslint-plugin-n": "17.9.0",
     "eslint-plugin-promise": "6.6.0",
     "pre-commit": "1.2.2",
-    "typescript": "5.5.3"
+    "typescript": "5.5.4"
   },
   "dependencies": {
     "@js-temporal/polyfill": "0.4.4"
