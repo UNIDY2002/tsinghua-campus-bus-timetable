@@ -1,0 +1,48 @@
+name: Build project
+
+on: push
+
+jobs:
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Setup caching
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: cache-${{ hashFiles('**/*.lock') }}
+          restore-keys: |
+            cache-
+      - name: Install dependencies
+        run: |
+          yarn
+      - name: Lint project
+        run: |
+          yarn lint
+      - name: Build project
+        run: |
+          yarn build
+          yarn start
+      - name: Deploy project
+        run: |
+          git checkout --orphan gh-pages
+          mv build /opt/build
+          rm -rf
+          mv /opt/build ./build
+          git add .
+          git add -f build/*
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m deploy
+      - name: Push artifacts
+        uses: ad-m/github-push-action@master
+        with:
+          branch: gh-pages
+          force: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
